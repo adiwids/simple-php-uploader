@@ -17,10 +17,10 @@ class SimpleUploader {
   }
 
   public function setUploadDir($path) {
+    if(substr($path, -1) == '/') {
+      $path = substr($path, 0, (strlen($path) - 1));
+    }
     $this->setAttribute('uploadDir', $path);
-
-    echo $this->getAttribute('uploadDir');
-
     if( !file_exists($this->getAttribute('uploadDir')) ) {
       return mkdir($this->getAttribute('uploadDir'), self::PERMISSION_MODE, true);
     }
