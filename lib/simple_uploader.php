@@ -43,7 +43,7 @@ class SimpleUploader {
     @move_uploaded_file($multipart_data[$field]['tmp_name'], $this->getStoredFilePath());
   }
 
-  public function getStoreFilePath() {
+  public function getStoredFilePath() {
     return implode(DIRECTORY_SEPARATOR, [$this->getAttribute('uploadDir'), $this->getAttribute('filename')]);
   }
 }

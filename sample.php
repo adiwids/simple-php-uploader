@@ -6,6 +6,7 @@
 if(isset($_FILES)) {
   require_once('./lib/simple_uploader.php');
   $uploader = new SimpleUploader();
+  $uploader->setUploadDir('./uploads/test/nested/directory/');
   $uploader->store('attachment', $_FILES);
   echo $uploader->getStoredFilePath();
 }
