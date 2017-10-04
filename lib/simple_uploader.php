@@ -9,7 +9,6 @@ class SimpleUploader {
 
   private $attributes = [
     'uploadDir' => NULL,
-    'field' => NULL,
     'filename' => NULL
   ];
 
@@ -41,15 +40,10 @@ class SimpleUploader {
       throw new Exception("Undefined index '".$field."' on multipart/data parameter.");
     }
     $this->setAttribute('filename', $multipart_data[$field]['name']);
-    $output = $this->getStorePath();
-    @move_uploaded_file($multipart_data[$field]['tmp_name'], $output);
+    @move_uploaded_file($multipart_data[$field]['tmp_name'], $this->getStoredFilePath());
   }
 
-  public function getStorePath() {
-    return implode(DIRECTORY_SEPARATOR, [$this->getAttribute('uploadDir'), $this->getAttribute('filename')]);
-  }
-
-  public function getFilePath() {
+  public function getStoreFilePath() {
     return implode(DIRECTORY_SEPARATOR, [$this->getAttribute('uploadDir'), $this->getAttribute('filename')]);
   }
 }

@@ -7,6 +7,6 @@ if(isset($_FILES)) {
   require_once('./lib/simple_uploader.php');
   $uploader = new SimpleUploader();
   $uploader->store('attachment', $_FILES);
-  echo $uploader->getStorePath();
+  echo $uploader->getStoredFilePath();
 }
 ?>
