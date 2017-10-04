@@ -1,4 +1,4 @@
-<form action="test.php" method="POST" enctype="multipart/form-data">
+<form action="sample.php" method="POST" enctype="multipart/form-data">
   <input type="file" name="attachment">
   <button type="submit">Upload</button>
 </form>
